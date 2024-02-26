@@ -1,0 +1,29 @@
+<ion-item>
+  <ion-label>{{currentQuestion.question}}</ion-label>
+</ion-item>
+
+<ion-list>
+  <ion-radio-group [allowEmptySelection]="true" (ionChange)="handleChange($event)" [(ngModel)]="selectedAnswer" >
+    <ion-item *ngFor="let option of currentQuestion.options"
+      [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'active' :  (selectedAnswer === undefined) ? '' : 'error'">
+      <ion-label>{{option}}</ion-label>
+      <ion-radio [value]="option" [disabled]="selectedAnswer"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+<div class="ion-margin ion-text-center">
+  <ion-button shape="round" (click)="backQuestion()" [disabled]="index === 0">
+    Anterior
+    <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+  </ion-button>
+
+  <ion-button shape="round" (click)="nextQuestion()" [disabled]="index === questions.length - 1">
+    Próxima
+    <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-button>
+
+  <ion-button shape="round" routerLink="/result" (click)="finishQuiz()" [disabled]="!(index === questions.length - 1)">
+    Finalizar
+  </ion-button>
+</div>

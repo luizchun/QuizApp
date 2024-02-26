@@ -1,0 +1,31 @@
+<ion-card>
+  <img alt="Resultado" [style]="{width: '100%'}" src="https://www.jornaljoca.com.br/wp-content/uploads/2019/07/quiz_Parabens.jpg" />
+  <ion-card-header>
+    <ion-card-title>Confira seus Resultados</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Totals</ion-label>
+        <ion-badge color="medium">{{result.total}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Acertos</ion-label>
+        <ion-badge color="success">{{result.correct}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Errou</ion-label>
+        <ion-badge color="danger">{{result.wrong}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Porcentagem de Acertos</ion-label>
+        <ion-badge color="success"> {{result.correctPercentage | percent}} </ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Porcentagem Erros</ion-label>
+        <ion-badge color="danger"> {{result.wrongPercentage | percent}} </ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

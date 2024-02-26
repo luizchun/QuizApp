@@ -1,0 +1,24 @@
+<ng-container *ngIf="!quizStarted; else quizContent" class="ion-text-center">
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-title class="ion-text-center">
+        App Quiz
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-grid style="height: 100%;">
+      <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%;">
+        <ion-col class="ion-text-center">
+          <ion-button class="custom-button" (click)="startQuiz()">Iniciar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+</ng-container>
+
+<ng-template #quizContent>
+  <app-question></app-question>
+</ng-template>
