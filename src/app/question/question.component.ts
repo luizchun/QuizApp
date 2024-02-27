@@ -35,6 +35,7 @@ export class QuestionComponent {
   currentQuestion: any;
   selectedAnswer: any;
   result!: Result;
+  btnStatus: boolean = false;
 
   constructor(private localStorage: LocalStorageService) {
     this.currentQuestion = this.questions[this.index];
@@ -52,7 +53,7 @@ export class QuestionComponent {
   }
 
   handleChange(ev : any) {
-    this.selectedAnswer = ev.target.value;
+    this.selectedAnswer = ev;
   }
 
 

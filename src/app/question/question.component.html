@@ -6,8 +6,8 @@
 
 <ion-button *ngFor="let option of currentQuestion.options"
   [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'active' :  (selectedAnswer === undefined) ? '' : 'error'"
-  expand="block" [class.selected]="selectedAnswer" (click)="selectedAnswer = !selectedAnswer" value="option"
-  [disabled]="selectedAnswer" color="ligth" class="button"> {{option}}</ion-button>
+  expand="block" [class.selected]="selectedAnswer" (click)="handleChange(option)" value="option"
+  [disabled]="selectedAnswer" color="ligth" class="button" > {{option}}</ion-button>
 
 <ion-grid class="ion-justify-content-center">
   <ion-row>

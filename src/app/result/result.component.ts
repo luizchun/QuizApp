@@ -9,10 +9,11 @@ import { Result } from '../interfaces/result';
 })
 export class ResultComponent  {
   result: Result;
-  resultImage: string = "https://www.jornaljoca.com.br/wp-content/uploads/2019/07/quiz_Parabens.jpg";
+  resultImage: string = "";
 
   constructor(private localStorage: LocalStorageService) {
     this.result = localStorage.get("result");    
+    console.log( this.result );
     this.resultImage = this.result.correctPercentage > 50 ? 'assets/images/parabens.jpg' : 'assets/images/errado.jpg';
     localStorage.clear();    
    }
