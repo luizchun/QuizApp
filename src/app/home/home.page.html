@@ -1,6 +1,6 @@
 <ng-container *ngIf="!quizStarted; else quizContent" class="ion-text-center">
   <ion-header [translucent]="true">
-    <ion-toolbar color="primary">
+    <ion-toolbar color="favorite">
       <ion-title class="ion-text-center">
         App Quiz
       </ion-title>
@@ -8,16 +8,19 @@
   </ion-header>
 
   <ion-content>
-    <ion-grid style="height: 100%;">
-      <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%;">
-        <ion-col class="ion-text-center">
-          <ion-button class="custom-button" (click)="startQuiz()">Iniciar</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
+  <ion-grid class="grid">
+    <ion-row class="ion-padding">
+      <ion-img style="width: 150px;" src="assets/images/avatar.png"></ion-img>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-button color="favorite" (click)="startQuiz()">Iniciar</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+ 
 
 </ng-container>
+
 
 <ng-template #quizContent>
   <app-question></app-question>

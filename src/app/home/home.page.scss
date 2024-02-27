@@ -27,10 +27,27 @@
 }
 
 .custom-button {
+  line-height: 1;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 25px;
   width: 200px;
-  height: 200px;
-  --border-radius: 100px;
-  --background: #007bff;
-  --box-shadow: none;
+  height: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  background-color: #004643 !important;
 }
 
+.ion-color-favorite {
+  --ion-color-base: var(--ion-color-favorite);
+  color: #ffffff;
+}
+
+.grid {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,29 +1,36 @@
-<ion-item>
-  <ion-label>{{currentQuestion.question}}</ion-label>
-</ion-item>
+<ion-card>
+  <ion-card-header class="header">
+    <ion-card-title style="color: white;">{{currentQuestion.question}}</ion-card-title>
+  </ion-card-header>
+</ion-card>
 
-<ion-list>
-  <ion-radio-group [allowEmptySelection]="true" (ionChange)="handleChange($event)" [(ngModel)]="selectedAnswer" >
-    <ion-item *ngFor="let option of currentQuestion.options"
-      [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'active' :  (selectedAnswer === undefined) ? '' : 'error'">
-      <ion-label>{{option}}</ion-label>
-      <ion-radio [value]="option" [disabled]="selectedAnswer"></ion-radio>
-    </ion-item>
-  </ion-radio-group>
-</ion-list>
+<ion-button *ngFor="let option of currentQuestion.options"
+  [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'active' :  (selectedAnswer === undefined) ? '' : 'error'"
+  expand="block" [class.selected]="selectedAnswer" (click)="selectedAnswer = !selectedAnswer" value="option"
+  [disabled]="selectedAnswer" color="ligth" class="button"> {{option}}</ion-button>
 
-<div class="ion-margin ion-text-center">
-  <ion-button shape="round" (click)="backQuestion()" [disabled]="index === 0">
-    Anterior
-    <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-  </ion-button>
+<ion-grid class="ion-justify-content-center">
+  <ion-row>
+    <ion-col size="4" >
+      <ion-button color="favorite" (click)="backQuestion()" [disabled]="index === 0" style="width: 100%;">
+        Anterior
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
 
-  <ion-button shape="round" (click)="nextQuestion()" [disabled]="index === questions.length - 1">
-    Próxima
-    <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
-  </ion-button>
+    <ion-col size="4">
+      <ion-button color="favorite"  routerLink="/result" (click)="finishQuiz()" style="width: 100%;"
+        [disabled]="!(index === questions.length - 1)">
+        Finalizar
+      </ion-button>
+    </ion-col>
 
-  <ion-button shape="round" routerLink="/result" (click)="finishQuiz()" [disabled]="!(index === questions.length - 1)">
-    Finalizar
-  </ion-button>
-</div>
+    <ion-col size="4" >
+      <ion-button color="favorite"  (click)="nextQuestion()" [disabled]="index === questions.length - 1" style="width: 100%;">
+        Próxima
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
