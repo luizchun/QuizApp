@@ -35,7 +35,6 @@ export class QuestionComponent {
   currentQuestion: any;
   selectedAnswer: any;
   result!: Result;
-  btnStatus: boolean = false;
 
   constructor(private localStorage: LocalStorageService) {
     this.currentQuestion = this.questions[this.index];
@@ -56,6 +55,9 @@ export class QuestionComponent {
     this.selectedAnswer = ev;
   }
 
+  checkSelected(){
+    return (this.selectedAnswer === this.currentQuestion.answer);
+  }
 
   nextQuestion() {
     this.saveQuestion();

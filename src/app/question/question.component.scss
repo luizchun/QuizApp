@@ -1,24 +1,37 @@
-.active {
-    color: white !important;
-    background-color: #004643 !important;
-    background: #004643 !important;
-  }
-  
-  .error {
-    color: white;
-    background-color: red !important;
-  }
+.answer-active {
+  color: white !important;
+  background-color: #004643 !important;
+  cursor: default;
+  pointer-events: none;
+}
 
-  .button {
-    color: white !important;
-    background-color: #004643;
-  }
+.answer-error {
+  color: white;
+  background-color: red !important;
+  cursor: default ;
+  pointer-events: none;
+}
 
-  .ion-color-favorite {
-    --ion-color-base: var(--ion-color-favorite);
-    color: #ffffff;
-  }
+.text-active {
+  color: #004643 !important;
+  font-weight: bolder;
+}
 
-  .header{
-    background-color: #004643;
-  }
+.text-error {
+  color: red;
+  font-weight: bolder;
+}
+
+.button {
+  color: white !important;
+  background-color: #00645f;
+}
+
+.ion-color-favorite {
+  --ion-color-base: var(--ion-color-favorite);
+  color: #ffffff;
+}
+
+.header{
+  background-color: #004643;
+}

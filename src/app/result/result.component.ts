@@ -14,7 +14,7 @@ export class ResultComponent  {
   constructor(private localStorage: LocalStorageService) {
     this.result = localStorage.get("result");    
     console.log( this.result );
-    this.resultImage = this.result.correctPercentage > 50 ? 'assets/images/parabens.jpg' : 'assets/images/errado.jpg';
+    this.resultImage = this.result.correctPercentage > 0.5 ? 'assets/images/parabens.jpg' : 'assets/images/errado.jpg';
     localStorage.clear();    
    }
 

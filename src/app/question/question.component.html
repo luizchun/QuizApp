@@ -5,28 +5,39 @@
 </ion-card>
 
 <ion-button *ngFor="let option of currentQuestion.options"
-  [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'active' :  (selectedAnswer === undefined) ? '' : 'error'"
-  expand="block" [class.selected]="selectedAnswer" (click)="handleChange(option)" value="option"
-  [disabled]="selectedAnswer" color="ligth" class="button" > {{option}}</ion-button>
+  [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'answer-active' :  (selectedAnswer === undefined) ? '' : 'answer-error'"
+  expand="block" (click)="handleChange(option)" value="option" color="none" class="button"> {{option}}</ion-button>
+
+<ion-text class="ion-text-center" [ngClass]="checkSelected() ? 'text-active' :  (selectedAnswer === undefined) ? '' : 'text-error'">
+  <ng-container *ngIf="checkSelected(); else wrong">
+    <h5>Parabéns, voce acertou!</h5>
+  </ng-container>
+
+  <ng-template #wrong>
+    <h5>Voce errou!</h5>
+  </ng-template>
+</ion-text>
+
 
 <ion-grid class="ion-justify-content-center">
   <ion-row>
-    <ion-col size="4" >
-      <ion-button color="favorite" (click)="backQuestion()" [disabled]="index === 0" style="width: 100%;">
+    <ion-col size="4">
+      <ion-button color="button" (click)="backQuestion()" [disabled]="(index === 0) " style="width: 100%;">
         Anterior
         <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-col>
 
     <ion-col size="4">
-      <ion-button color="favorite"  routerLink="/result" (click)="finishQuiz()" style="width: 100%;"
+      <ion-button color="button" routerLink="/result" (click)="finishQuiz()" style="width: 100%;"
         [disabled]="!(index === questions.length - 1)">
         Finalizar
       </ion-button>
     </ion-col>
 
-    <ion-col size="4" >
-      <ion-button color="favorite"  (click)="nextQuestion()" [disabled]="index === questions.length - 1" style="width: 100%;">
+    <ion-col size="4">
+      <ion-button color="button" (click)="nextQuestion()"
+        [disabled]="((index === questions.length - 1) || !selectedAnswer)" style="width: 100%;">
         Próxima
         <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
       </ion-button>
