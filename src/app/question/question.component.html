@@ -6,7 +6,7 @@
 
 <ion-button *ngFor="let option of currentQuestion.options"
   [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'answer-active' :  (selectedAnswer === undefined) ? '' : 'answer-error'"
-  expand="block" (click)="handleChange(option)" value="option" color="none" class="button"> {{option}}</ion-button>
+  expand="block" (click)="handleChange(option)" value="option" color="none" class="button-question"> {{option}}</ion-button>
 
 <ion-text class="ion-text-center" [ngClass]="checkSelected() ? 'text-active' :  (selectedAnswer === undefined) ? '' : 'text-error'">
   <ng-container *ngIf="checkSelected(); else wrong">

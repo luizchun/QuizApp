@@ -6,8 +6,6 @@
 }
 
 .answer-error {
-  color: white;
-  background-color: red !important;
   cursor: default ;
   pointer-events: none;
 }
@@ -23,9 +21,18 @@
 }
 
 .button {
-  color: white !important;
+  color: white;
   background-color: #00645f;
+
 }
+
+.button-question {
+  color: black ;
+  background-color: white;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
 
 .ion-color-favorite {
   --ion-color-base: var(--ion-color-favorite);
