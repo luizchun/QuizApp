@@ -5,7 +5,7 @@
 </ion-card>
 
 <ion-button *ngFor="let option of currentQuestion.options"
-  [ngClass]="(option === currentQuestion.answer && selectedAnswer) ? 'answer-active' :  (selectedAnswer === undefined) ? '' : 'answer-error'"
+  [ngClass]="(option === selectedAnswer) ? ((option === currentQuestion.answer ) ? 'answer-active' : 'answer-error') : (selectedAnswer) ? 'undefined' : ''"
   expand="block" (click)="handleChange(option)" value="option" color="none" class="button-question"> {{option}}</ion-button>
 
 <ion-text class="ion-text-center" [ngClass]="checkSelected() ? 'text-active' :  (selectedAnswer === undefined) ? '' : 'text-error'">
@@ -14,7 +14,7 @@
   </ng-container>
 
   <ng-template #wrong>
-    <h5>Voce errou!</h5>
+    <h5>Voce errou! A Resposta Correta é: {{currentQuestion.answer}}</h5>
   </ng-template>
 </ion-text>
 

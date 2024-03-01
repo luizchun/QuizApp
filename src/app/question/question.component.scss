@@ -6,6 +6,13 @@
 }
 
 .answer-error {
+  color: white !important;
+  background-color: red !important;
+  cursor: default ;
+  pointer-events: none;
+}
+
+.undefined {
   cursor: default ;
   pointer-events: none;
 }
